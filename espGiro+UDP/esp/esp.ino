@@ -176,7 +176,7 @@ void enviar(String msg) {
   String sMsgTemp = "PLACA/Carro/";
   sMsgTemp += msg;
   sMsgTemp.toCharArray(cstr, 50);
-  udp.beginPacket(udp.remoteIP(), 1194);
+  udp.beginPacket(udp.remoteIP(), 5000);
   udp.println(cstr);
   udp.endPacket();
   Serial.print("Enviando: "); Serial.println(sMsgTemp);
