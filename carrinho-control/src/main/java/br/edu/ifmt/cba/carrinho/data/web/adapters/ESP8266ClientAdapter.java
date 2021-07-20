@@ -16,10 +16,11 @@ import java.time.Duration;
 @AllArgsConstructor
 public class ESP8266ClientAdapter implements ESP8266Client {
 
-  private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
   private final WebClient esp8266Client;
 
-  public void doMovement(Direction direction, Long duration) {
+  private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
+
+  public void doMovement(Long duration, Direction direction) {
 
   }
 }
