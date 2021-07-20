@@ -1,9 +1,10 @@
 package br.edu.ifmt.cba.carrinho.application.config;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.web.reactive.function.client.WebClient;
 
 /**
  * @author daohn
@@ -12,9 +13,14 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class ESP8266ClientConfig {
 
+  private static final String ESP8266_URL = "";
+
   @Bean
-  public RestTemplate esp8266Client(RestTemplateBuilder builder) {
-    return builder.build();
+  public WebClient esp8266Client() {
+    return WebClient.builder()
+      .baseUrl(ESP8266_URL)
+      .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+      .build();
   }
 
 }
