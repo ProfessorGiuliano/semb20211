@@ -1,0 +1,27 @@
+Comandos que o carro aguarda
+
+Localhost:80/ 
+-> movimento
+	-> /f
+	-> /r
+	-> /d
+	-> /e	
+		->/tempo  #Em ms
+->leitura
+	->/sensores
+	->/giro
+	->/ace
+	->/sonar
+
+Comandos que o carro retorna
+
+->/sonar/valor1/.../valor180
+	
+
+->/giro/valorx/valory/valorz/
+
+->/ace/valorx/valory/valorz/	
+
+
+
+	
