@@ -6,18 +6,19 @@ Localhost:80/
 	-> /r
 	-> /d
 	-> /e	
-		->/tempo  #Em ms
+		->/tempo  #Em passos, cada passo representa 10ms
 ->leitura
-	->/sensores
-	->/giroAce
 	->/sonar
 
 Comandos que o carro retorna
 
 ->/sonar/valor1/.../valor180
+
+Enquanto em movimento, entre a execução dos passos de 10ms, o Carro enviará o seguinte post
+
+-> giroAce/Gx/Gy/Gz/Ax/Ay/Az
 	
 
->/giroAce/Gx/Gy/Gz/Ax/Ay/Az
 
 	
 

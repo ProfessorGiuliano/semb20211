@@ -14,13 +14,13 @@
    | Função  | Pino |
    ---------------------
    Sonar:
-   |   Trig  |   D3    |
+   |   Trig  |   D3    | Amarelo
    |   Echo  |   D4    |
    Giroscópio:
    |   SCL   |   D6    |
    |   SDA   |   D5    |
    Servo:
-   |   Com   |   D0    |
+   |   Com   |   D0    | Laranja
    Ponte H:
    | MotorA1 |   D0    | Amarelo
    | MotorA2 |   D5    | Verde
@@ -91,8 +91,6 @@ void setup() {
 
 void loop() {
   server.handleClient();
-
-  
 }
 
 void handleBody() { //Handler for the body path
@@ -117,33 +115,17 @@ void handleBody() { //Handler for the body path
   for (int i = 0; i < itemCount; i++) {
     comando[i] = splitter->getItemAtIndex(i);
   }
-
-  Serial.print("comando[0]: "); Serial.println(comando[0]);
-  Serial.print("comando[1]: "); Serial.println(comando[1]);
-  Serial.print("comando[2]: "); Serial.println(comando[2]);
-  Serial.print("comando[3]: "); Serial.println(comando[3]);
-
-
+  
   if (comando[0] == "movimento") {
     int temp = comando[2].toInt();
     movimento(comando[1], temp);
-  } else if (comando[0] == "leitura") {
-    if(comando[1]=="sensores"){
-      
-    }else if(comando[1]=="giro"){
-      
-    }else if(comando[1]=="ace"){
-      
-    }else if(comando[1]=="sonar"){
-      
-    }
+  } else if (comando[0] == "sonar") {
+    leituraSonar();
   }
 
   server.send(200, "text/plain", "ExecutandoComando");
   Serial.println(message);
 }
-
-
 
 void hold(const unsigned int &ms) {
   // Non blocking hold
@@ -169,10 +151,17 @@ void leituraSonar() {
   enviar(req);
 }
 
-
-
 void enviar(String msg) {
-  server.send(200, "text/plain", msg);
+  server.send(10, "text/plain", msg);
+}
+
+void andarLer(int passos){
+  int count = 0;
+  do{
+    giroAce();
+    hold(10);
+    count++;
+  }while(count<=passos);
 }
 
 void giroAce(){
@@ -194,22 +183,21 @@ void giroAce(){
 }
 
 void movimento(String comando, int temp) {
-  enviar("Em movimento");
-  if (comando == "f") {
+  if (comando == "e") {
     frenteOn();
-    hold(temp);
-    direcaoOFF();
-  } else if (comando == "r") {
-    reOn();
-    hold(temp);
+    andarLer(temp);
     direcaoOFF();
   } else if (comando == "d") {
-    direitaOn();
-    hold(temp);
+    reOn();
+    andarLer(temp);
     direcaoOFF();
-  } else if (comando == "e") {
+  } else if (comando == "f") {
+    direitaOn();
+    andarLer(temp);
+    direcaoOFF();
+  } else if (comando == "r") {
     esquerdaOn();
-    hold(temp);
+    andarLer(temp);
     direcaoOFF();
   }
 }
@@ -235,7 +223,7 @@ void direitaOn() {
 void esquerdaOn() {
   digitalWrite(D5, LOW);
   digitalWrite(D6, HIGH);
-  digitalWrite(D6, HIGH);
+  digitalWrite(D7, HIGH);
   digitalWrite(D8, LOW);
 }
 void direcaoOFF() {
