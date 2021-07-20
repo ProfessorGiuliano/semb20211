@@ -9,8 +9,7 @@ Localhost:80/
 		->/tempo  #Em ms
 ->leitura
 	->/sensores
-	->/giro
-	->/ace
+	->/giroAce
 	->/sonar
 
 Comandos que o carro retorna
@@ -18,9 +17,9 @@ Comandos que o carro retorna
 ->/sonar/valor1/.../valor180
 	
 
-->/giro/valorx/valory/valorz/
+>/giroAce/Gx/Gy/Gz/Ax/Ay/Az
 
-->/ace/valorx/valory/valorz/	
+	
 
 
 

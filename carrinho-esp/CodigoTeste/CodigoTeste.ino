@@ -91,6 +91,8 @@ void setup() {
 
 void loop() {
   server.handleClient();
+
+  
 }
 
 void handleBody() { //Handler for the body path
@@ -171,6 +173,24 @@ void leituraSonar() {
 
 void enviar(String msg) {
   server.send(200, "text/plain", msg);
+}
+
+void giroAce(){
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
+  req = "giroAce/";
+  req += g.gyro.x;
+  req += "/";
+  req += g.gyro.y;
+  req += "/";
+  req += g.gyro.z;
+  req +=  "/";
+  req += a.acceleration.x;
+  req +=  "/";
+  req += a.acceleration.y;
+  req += "/";
+  req += a.acceleration.z;
+  enviar(req);
 }
 
 void movimento(String comando, int temp) {
