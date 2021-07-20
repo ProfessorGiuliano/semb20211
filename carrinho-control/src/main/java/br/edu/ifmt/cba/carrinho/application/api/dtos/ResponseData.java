@@ -1,4 +1,4 @@
-package br.edu.ifmt.cba.carrinho.web.api.dtos;
+package br.edu.ifmt.cba.carrinho.application.api.dtos;
 
 import lombok.Builder;
 import lombok.Data;

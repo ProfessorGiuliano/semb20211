@@ -1,12 +1,12 @@
-package br.edu.ifmt.cba.carrinho.web.api;
+package br.edu.ifmt.cba.carrinho.application.api;
 
 import br.edu.ifmt.cba.carrinho.core.ports.MoveService;
-import br.edu.ifmt.cba.carrinho.web.api.dtos.ResponseData;
+import br.edu.ifmt.cba.carrinho.application.api.dtos.ResponseData;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,32 +20,32 @@ public class MoveController {
 
   private final MoveService moveService;
 
-  @GetMapping("/forward/{time}")
-  public ResponseEntity<ResponseData<Object>> forward(@PathVariable Long time) {
+  @GetMapping("/forward")
+  public ResponseEntity<ResponseData<Object>> forward(@RequestParam("time") Long time) {
 
     moveService.forward(time);
 
     return ResponseEntity.ok(null);
   }
 
-  @GetMapping("/back/{time}")
-  public ResponseEntity<ResponseData<Object>> back(@PathVariable Long time) {
+  @GetMapping("/back")
+  public ResponseEntity<ResponseData<Object>> back(@RequestParam("time") Long time) {
 
     moveService.back(time);
 
     return ResponseEntity.ok(null);
   }
 
-  @GetMapping("/left/{time}")
-  public ResponseEntity<ResponseData<Object>> left(@PathVariable Long time) {
+  @GetMapping("/left")
+  public ResponseEntity<ResponseData<Object>> left(@RequestParam("time")  Long time) {
 
     moveService.left(time);
 
     return ResponseEntity.ok(null);
   }
 
-  @GetMapping("/right/{time}")
-  public ResponseEntity<ResponseData<Object>> right(@PathVariable Long time) {
+  @GetMapping("/right")
+  public ResponseEntity<ResponseData<Object>> right(@RequestParam("time")  Long time) {
 
     moveService.right(time);
 
