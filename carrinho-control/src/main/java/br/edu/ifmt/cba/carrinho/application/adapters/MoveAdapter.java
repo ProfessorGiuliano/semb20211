@@ -21,20 +21,20 @@ public class MoveAdapter implements MoveService {
   private final MoveLeftUseCase moveLeftUseCase;
   private final MoveRightUseCase moveRightUseCase;
 
-
   @Override public void forward(Long time) {
-
+    moveForwardUseCase.handle(time);
   }
 
   @Override public void left(Long time) {
-
+    moveLeftUseCase.handle(time);
   }
 
   @Override public void back(Long time) {
+    moveBackUseCase.handle(time);
 
   }
 
   @Override public void right(Long time) {
-
+    moveRightUseCase.handle(time);
   }
 }
