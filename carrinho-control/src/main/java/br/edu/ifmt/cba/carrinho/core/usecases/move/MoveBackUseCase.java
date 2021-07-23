@@ -1,5 +1,8 @@
 package br.edu.ifmt.cba.carrinho.core.usecases.move;
 
+import br.edu.ifmt.cba.carrinho.core.model.Direction;
+import br.edu.ifmt.cba.carrinho.core.ports.ESP8266Client;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,8 +10,12 @@ import org.springframework.stereotype.Component;
  * @since 19/07/2021
  */
 @Component
-public class MoveBackUseCase {
+@AllArgsConstructor
+public class MoveBackUseCase implements MoveUseCase {
 
+    private final ESP8266Client client;
 
-
+    @Override public void handle(Long time) {
+        client.doMovement(time, Direction.BACK);
+    }
 }
