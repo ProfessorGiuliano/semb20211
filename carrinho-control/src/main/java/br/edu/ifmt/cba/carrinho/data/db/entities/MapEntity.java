@@ -19,7 +19,7 @@ import java.util.List;
 @Getter @Setter
 @Table(name = "MAP")
 @AllArgsConstructor @NoArgsConstructor
-public class Map extends AbstractEntity {
+public class MapEntity extends AbstractEntity {
 
   @Column(name = "locality", unique = true)
   private String locality;
@@ -28,6 +28,6 @@ public class Map extends AbstractEntity {
   private String operator;
 
   @OneToMany(mappedBy = "map")
-  private List<Coordinates> coordinates;
+  private List<CoordinateEntity> coordinates;
 
 }

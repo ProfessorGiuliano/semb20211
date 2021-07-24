@@ -17,9 +17,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Getter @Setter
-@Table(name = "COORDINATES")
+@Table(name = "COORDINATE")
 @AllArgsConstructor @NoArgsConstructor
-public class Coordinates extends AbstractEntity {
+public class CoordinateEntity extends AbstractEntity {
 
   @Column(name = "x0")
   private Double initialX;
@@ -33,5 +33,5 @@ public class Coordinates extends AbstractEntity {
 
   @ManyToOne
   @JoinColumn(name = "id_map")
-  private Map map;
+  private MapEntity map;
 }
