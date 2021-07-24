@@ -16,17 +16,17 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
-    registry.enableSimpleBroker("/topic");
-    registry.setApplicationDestinationPrefixes("/app");
+    registry.enableSimpleBroker("/channel");
+    registry.setApplicationDestinationPrefixes("/server");
 
   }
 
 
   @Override
   public void registerStompEndpoints(StompEndpointRegistry registry) {
+    registry.addEndpoint("/ws").withSockJS();
     registry.addEndpoint("/stomp")
       .setAllowedOrigins("http://127.0.0.1:5500")
       .withSockJS();
-
   }
 }

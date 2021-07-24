@@ -20,7 +20,9 @@ public class ESP8266ClientAdapter implements ESP8266Client {
 
     String message = "Duration: " + duration + ", " + "Direction: " + direction;
 
-    simpMessagingTemplate.convertAndSend("/topic/messages", message);
+    System.out.println(message);
+
+    simpMessagingTemplate.convertAndSend("/channel/output-1", message);
 
   }
 }
