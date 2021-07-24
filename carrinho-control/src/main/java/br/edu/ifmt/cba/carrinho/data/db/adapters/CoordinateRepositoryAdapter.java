@@ -2,6 +2,7 @@ package br.edu.ifmt.cba.carrinho.data.db.adapters;
 
 import br.edu.ifmt.cba.carrinho.core.model.Coordinate;
 import br.edu.ifmt.cba.carrinho.core.ports.CoordinateRepository;
+import br.edu.ifmt.cba.carrinho.data.db.repositories.JpaCoordinateRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class CoordinateRepositoryAdapter implements CoordinateRepository {
 
-  private final CoordinateRepository repository;
+  private final JpaCoordinateRepository repository;
 
   @Override public Coordinate create(Coordinate coordinate) {
     return null;
