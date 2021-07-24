@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 public class ESP8266CommunicationController {
 
   @MessageMapping("/input")
-  @SendTo("/commands/output-2")
+  @SendTo("/channel/output-2")
   public String getMessages(@Payload String message){
     var date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
     var saida = date + " - " + message;
