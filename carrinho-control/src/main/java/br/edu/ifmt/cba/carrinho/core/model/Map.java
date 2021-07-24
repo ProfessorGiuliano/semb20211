@@ -8,6 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Map {
+  private Long id;
   private String locality;
   private String operator;
 }
