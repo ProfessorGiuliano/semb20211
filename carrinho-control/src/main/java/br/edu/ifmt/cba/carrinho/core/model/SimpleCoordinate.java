@@ -7,7 +7,7 @@ import lombok.Data;
  * @since 24/07/2021
  */
 @Data
-public class FinalCoordinate {
+public class SimpleCoordinate {
   private Double x;
   private Double y;
 
