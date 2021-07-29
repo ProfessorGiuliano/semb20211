@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class MoveAdapter implements MoveService {
+public class MoveServiceAdapter implements MoveService {
 
   private final MoveBackUseCase moveBackUseCase;
   private final MoveForwardUseCase moveForwardUseCase;
