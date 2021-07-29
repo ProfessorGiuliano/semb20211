@@ -1,6 +1,6 @@
 package br.edu.ifmt.cba.carrinho.data.db.entities;
 
-import lombok.AllArgsConstructor;
+import br.edu.ifmt.cba.carrinho.core.model.Map;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @Table(name = "MAP")
-@AllArgsConstructor @NoArgsConstructor
+@NoArgsConstructor
 public class MapEntity extends AbstractEntity {
 
   @Column(name = "locality", unique = true)
@@ -30,4 +30,22 @@ public class MapEntity extends AbstractEntity {
   @OneToMany(mappedBy = "map")
   private List<CoordinateEntity> coordinates;
 
+  public Map toDomain() {
+    var map = new Map();
+    map.setId(getId());
+    map.setLocality(getLocality());
+    map.setOperator(getOperator());
+    return map;
+  }
+
+  public static MapEntity fromDomain(Map map) {
+    var entity = new MapEntity();
+    entity.setId(map.getId());
+
+    entity.setLocality(map.getLocality());
+
+    entity.setOperator(map.getOperator());
+
+    return entity;
+  }
 }
