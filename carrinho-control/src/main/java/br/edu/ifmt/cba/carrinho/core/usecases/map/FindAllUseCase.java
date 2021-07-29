@@ -17,7 +17,7 @@ public class FindAllUseCase {
 
   private final MapRepository repository;
 
-  public List<Map> handle(Long id) {
+  public List<Map> handle() {
     return repository.findAll();
   }
 
