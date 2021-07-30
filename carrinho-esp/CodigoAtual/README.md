@@ -17,6 +17,7 @@ o termo direção é um dos seguintes comandos:
 	r -> ré
 	e -> esquerda
 	d -> direita
+	
 o termo tempo é em int, onde indica quanto tempo ele executará esse movimento.
 
 O comando leitura deve ser formatado da seguinte forma
