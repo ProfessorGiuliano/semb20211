@@ -109,7 +109,7 @@ void entrada(String msg) {
 
   if (comando[0] == "movimento") {
     passo(comando[1], comando[2].toInt());
-  } else if (comando[1] == "leitura") {
+  } else if (comando[0] == "leitura") {
     leitura();
   }
   hold(100);
