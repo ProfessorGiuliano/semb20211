@@ -27,6 +27,7 @@
    | MotorB1 |   D6    | Azul
    | MotorB2 |   D7    | Roxo
 */
+
 ESP8266WebServer server(80);
 Ultrasonic ultrasonic(D3, D4);
 Servo s;
