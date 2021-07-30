@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.FxmldocumentController">
+   <children>
+      <Label layoutX="240.0" layoutY="29.0" text="Controle do Carro">
+         <font>
+            <Font name="Californian FB" size="52.0" />
+         </font>
+      </Label>
+      <Button fx:id="esquerda" layoutX="101.0" layoutY="277.0" mnemonicParsing="false" onAction="#e" text="Esquerda">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Button>
+      <Button fx:id="frente" layoutX="312.0" layoutY="165.0" mnemonicParsing="false" onAction="#f" text="Frente">
+         <font>
+            <Font name="Calibri Light" size="54.0" />
+         </font>
+      </Button>
+      <Button fx:id="direita" layoutX="480.0" layoutY="269.0" mnemonicParsing="false" onAction="#d" text="Direita">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Button>
+      <Button fx:id="re" layoutX="355.0" layoutY="384.0" mnemonicParsing="false" onAction="#r" text="Ré">
+         <font>
+            <Font name="Calibri Light" size="54.0" />
+         </font>
+      </Button>
+      <Slider fx:id="velocidade" blockIncrement="100.0" layoutX="719.0" layoutY="75.0" max="1000.0" orientation="VERTICAL" prefHeight="477.0" prefWidth="97.0" showTickLabels="true" showTickMarks="true" />
+      <Label layoutX="739.0" layoutY="52.0" text="Tempo On" />
+      <Button fx:id="leitura" layoutX="315.0" layoutY="529.0" mnemonicParsing="false" onAction="#ler" text="Leitura Sonar">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
