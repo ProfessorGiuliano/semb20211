@@ -1,6 +1,5 @@
 package br.edu.ifmt.cba.carrinho.application.api.dtos;
 
-import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -8,10 +7,21 @@ import lombok.Data;
  * @since 19/07/2021
  */
 @Data
-@Builder
 public class ResponseData<T> {
 
   private T data;
   private String message;
+
+  public ResponseData() {}
+
+  public ResponseData<T> data(T data) {
+    this.data = data;
+    return this;
+  }
+
+  public ResponseData<T> message(String message) {
+    this.message = message;
+    return this;
+  }
 
 }
