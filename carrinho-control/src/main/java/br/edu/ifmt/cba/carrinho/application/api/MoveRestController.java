@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/move")
 @AllArgsConstructor
-public class MoveController {
+public class MoveRestController {
 
   private final MoveService moveService;
 
